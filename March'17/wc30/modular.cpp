@@ -32,19 +32,61 @@ inline bool sortDown(ll x,ll y){return x>y;}
 inline bool sortPairSecondInc( std::pair< ll,ll > p1, std::pair< ll,ll > p2){ return p1.S<p2.S;}
 inline bool sortPairSecondDec( std::pair< ll,ll > p1, std::pair< ll,ll > p2){ return p1.S>p2.S;}
 inline bool sortPairFirstDec( std::pair< ll,ll > p1, std::pair< ll,ll > p2){ return p1.F>p2.F;}
-
 inline bool sortDownByLen( std::pair< ll,ll > p1, std::pair< ll,ll > p2 ){ return p1.S-p1.F > p2.S-p2.F;}
 
-
-const int mod = 1000000007;
-const int N = 4e5+5;
-const int ifact_n_minus_1 = 977041169;
+const int mod = 1000000007
+const int N = 4e5+5
+const int ifact_n_minus_1 = 977041169
 using namespace std;
 /////////////////////////////////////////////////////////////////////
 
+// MO's algo
+ll block_size;
+ll n,q;
+ll arr[40020];
+vector< pair< pair<ll,ll> , pair< pair<ll,ll> ,ll> > > query;
+ll ans[400020];
 
+bool moCompare(pair< pair<ll,ll> , pair< pair<ll,ll> ,ll> > p1,pair< pair<ll,ll> , pair< pair<ll,ll> ,ll> >p2){
+
+    if(p1.F.F/block_size != p2.F.F/block_size){
+        return p1.F.F < p2.F.F;
+    }
+
+    return p1.F.S < p2.F.S;
+
+}
+
+void mo(){
+    
+    sort(all(v),Compare);
+
+    ll curr_l=
+
+    for(auto it=query.begin();it<query.end();++it){
+
+    }
+
+}
 
 int main()
 {
-	std::ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
+
+    cin>>n>>q;
+
+    block_size=q/(int)sqrt(q);
+
+    REP(i,n) cin>>arr[i];
+
+    REP(i,q){
+        ll l,r,x,y; cin>>l>>r>>x>>y;
+
+        query.pb(mp(mp(l,r),mp(mp(x,y),i)));
+
+    }
+
+    mo();
+
+
 }

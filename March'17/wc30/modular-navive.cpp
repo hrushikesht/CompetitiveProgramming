@@ -42,9 +42,31 @@ const int ifact_n_minus_1 = 977041169;
 using namespace std;
 /////////////////////////////////////////////////////////////////////
 
-
+ll arr[40020];
 
 int main()
 {
-	std::ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
+
+    ll n,q; cin>>n>>q;
+
+    FOR(i,1,n) cin>>arr[i];
+
+    FOR(i,1,q){
+        ll l,r,x,y;
+        cin>>l>>r>>x>>y;
+
+        // DEBUG(l);
+        // DEBUG(r);
+
+        ll count=0;
+
+        FOR(j,l+1,r+1){
+            // cout<<"hi"<<endl;
+            if((arr[j]%x)==y){
+                count++;
+            }
+        }
+        cout<<count<<endl;
+    }
 }
