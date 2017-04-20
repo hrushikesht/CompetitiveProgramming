@@ -1,12 +1,22 @@
 #include <bits/stdc++.h>
 #include <unordered_map>
 #include <utility>
+#include <tuple>
+
+#define ll long long int
+#define vi vector<int>
+#define vl vector<ll>
+#define pi pair<int>
+#define tiii tuple<int,int,int> >
+#define tiiii tuple<int,int,int,int>
+#define pl pair<ll> pl
+#define vpi vector< pair<int,int> >>
 
 #define pb push_back
 #define mp make_pair
 #define F first
 #define S second
-#define ll long long int
+#define mt make_tuple
 
 #define DEBUG(x) cout << '>' << #x << ':' << x << endl;
 #define REP(i,n) for(ll i=0;i<(n);i++)
@@ -42,9 +52,49 @@ const int ifact_n_minus_1 = 977041169;
 using namespace std;
 /////////////////////////////////////////////////////////////////////
 
-
+int n,m,k;
+bool hole[1000010]={false};
 
 int main()
 {
-	std::ios::sync_with_stdio(false);
+    std::ios::sync_with_stdio(false);
+    cin.tie(0);
+
+   	cin>>n>>m>>k;
+
+   	FOR(i,1,m){
+   		int temp; cin>>temp;
+   		hole[temp]=true;
+   	}
+
+   	int u,v;
+
+   	int bone=1;
+
+   	if(hole[bone]){
+   		cout<<bone<<endl;
+   		return 0;
+   	}
+
+   	FOR(i,1,k){
+   		cin>>u>>v;
+
+   		if(bone==u){
+   			bone=v;
+   			if(hole[bone]){
+   				break;
+   			}
+   		}
+   		else if(bone==v){
+   			bone=u;
+   			if(hole[bone]){
+   				break;
+   			}
+   		}
+   	}
+
+   	cout<<bone<<endl;
+   	return 0;
+
 }
+
